@@ -32,21 +32,23 @@ const shellVariants = {
     width: "100%",
     maxWidth: 1240,
     padding: "12px 14px",
-    backgroundColor: "rgba(250, 247, 238, 0.56)",
-    borderColor: "rgba(232, 230, 220, 0.12)",
+    backgroundColor: "rgba(255, 255, 255, 0.42)",
+    borderColor: "rgba(0, 0, 0, 0.04)",
     boxShadow: "0 18px 45px rgba(31, 29, 26, 0.03)",
     backdropFilter: "blur(10px)",
+    borderRadius: "28px",
   },
   scrolled: {
     y: 10,
     scale: 0.975,
     width: "88%",
-    maxWidth: 920,
-    padding: "6px 8px",
-    backgroundColor: "rgba(250, 247, 238, 0.88)",
-    borderColor: "rgba(215, 145, 119, 0.16)",
+    maxWidth: 780,
+    padding: "4px 5px",
+    backgroundColor: "rgba(255, 255, 255, 0.84)",
+    borderColor: "rgba(0, 0, 0, 0.07)",
     boxShadow: "0 18px 48px rgba(31, 29, 26, 0.09)",
     backdropFilter: "blur(22px)",
+    borderRadius: "22px",
   },
 };
 
@@ -63,9 +65,9 @@ const logoVariants = {
     rotate: 0,
   },
   scrolled: {
-    width: 38,
-    height: 38,
-    borderRadius: 14,
+    width: 32,
+    height: 32,
+    borderRadius: 12,
     rotate: -8,
   },
 };
@@ -94,7 +96,7 @@ const navVariants = {
 
 const ctaVariants = {
   top: { paddingLeft: 18, paddingRight: 18, paddingTop: 10, paddingBottom: 10 },
-  scrolled: { paddingLeft: 12, paddingRight: 12, paddingTop: 7, paddingBottom: 7 },
+  scrolled: { paddingLeft: 10, paddingRight: 10, paddingTop: 6, paddingBottom: 6 },
 };
 
 const actionsVariants = {
@@ -104,7 +106,7 @@ const actionsVariants = {
 
 const iconButtonVariants = {
   top: { width: 42, height: 42 },
-  scrolled: { width: 36, height: 36 },
+  scrolled: { width: 32, height: 32 },
 };
 
 export default function Navbar() {
@@ -155,10 +157,10 @@ export default function Navbar() {
         <motion.div
           variants={shellVariants}
           transition={shellTransition}
-          className="relative flex items-center justify-between rounded-[28px] border"
+          className="relative flex items-center justify-between overflow-hidden rounded-[28px] border"
           style={{ WebkitBackdropFilter: isScrolled ? "blur(22px)" : "blur(10px)" }}
         >
-          <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_62%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_62%)]" />
 
           <motion.a
             href="#"
@@ -181,7 +183,7 @@ export default function Navbar() {
 
           <motion.nav
             variants={navVariants}
-            className="relative hidden items-center rounded-full bg-white/36 md:flex"
+            className="relative hidden items-center rounded-full bg-black/[0.03] md:flex"
           >
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -232,7 +234,7 @@ export default function Navbar() {
               variants={iconButtonVariants}
               whileHover={{ y: -1.5, scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="group relative inline-flex items-center justify-center rounded-full border border-white/30 bg-white/44 text-ink/74 shadow-[0_12px_28px_rgba(31,29,26,0.08)] transition-[background-color,color,box-shadow,border-color] duration-300 hover:border-terracotta/24 hover:bg-white/78 hover:text-ink hover:shadow-[0_18px_36px_rgba(215,145,119,0.18)]"
+              className="group relative inline-flex items-center justify-center rounded-full border border-black/[0.06] bg-black/[0.03] text-ink/65 shadow-[0_12px_28px_rgba(31,29,26,0.06)] transition-[background-color,color,box-shadow,border-color] duration-300 hover:border-terracotta/25 hover:bg-black/[0.06] hover:text-ink hover:shadow-[0_18px_36px_rgba(215,145,119,0.18)]"
             >
               <span className="pointer-events-none absolute left-1/2 top-full mt-3 hidden -translate-x-1/2 translate-y-1 rounded-full border border-white/50 bg-[rgba(252,249,242,0.92)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/60 opacity-0 shadow-[0_10px_24px_rgba(31,29,26,0.08)] transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 md:inline-flex">
                 GitHub
@@ -249,7 +251,7 @@ export default function Navbar() {
         transition={shellTransition}
         className="fixed inset-x-0 bottom-4 z-50 px-3 md:hidden"
       >
-        <div className="mx-auto flex max-w-sm items-center justify-between rounded-[28px] bg-[rgba(250,247,238,0.8)] px-2 py-2 shadow-[0_18px_45px_rgba(31,29,26,0.12)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-sm items-center justify-between rounded-[24px] bg-[rgba(255,255,255,0.82)] px-2 py-2 shadow-[0_18px_45px_rgba(31,29,26,0.12)] backdrop-blur-xl">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;

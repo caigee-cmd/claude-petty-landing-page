@@ -2,8 +2,11 @@
 
 import FadeContent from "@/components/FadeContent";
 import Magnet from "@/components/Magnet";
-import { AlertTriangle, Apple, ArrowUpRight } from "lucide-react";
+import { AlertTriangle, Apple, Download } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+const DOWNLOAD_URL =
+  "https://github.com/caigee-cmd/claude-petty/releases/latest/download/ClaudePetty.dmg";
 
 export default function Download() {
   const t = useTranslations("Download");
@@ -30,14 +33,12 @@ export default function Download() {
             <div className="mt-9 flex justify-center">
               <Magnet padding={130} magnetStrength={3.2} wrapperClassName="inline-flex">
                 <a
-                  href="https://github.com/caigee-cmd/claude-petty/releases"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={DOWNLOAD_URL}
                   className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-cream shadow-[0_14px_28px_rgba(31,29,26,0.1)] transition-colors hover:bg-ink/92"
                 >
                   <Apple className="h-4 w-4" />
                   {t("button")}
-                  <ArrowUpRight className="h-4 w-4 opacity-70" />
+                  <Download className="h-4 w-4 opacity-70" />
                 </a>
               </Magnet>
             </div>
