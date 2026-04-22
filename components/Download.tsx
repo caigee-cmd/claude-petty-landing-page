@@ -2,7 +2,7 @@
 
 import FadeContent from "@/components/FadeContent";
 import Magnet from "@/components/Magnet";
-import { AlertTriangle, Apple, Download } from "lucide-react";
+import { AlertTriangle, Apple, Download as DownloadIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const DOWNLOAD_URL =
@@ -38,7 +38,7 @@ export default function Download() {
                 >
                   <Apple className="h-4 w-4" />
                   {t("button")}
-                  <Download className="h-4 w-4 opacity-70" />
+                  <DownloadIcon className="h-4 w-4 opacity-70" />
                 </a>
               </Magnet>
             </div>
