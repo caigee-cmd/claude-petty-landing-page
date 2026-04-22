@@ -43,6 +43,14 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Anthropic brand palette
+        cream: "#faf9f5",
+        ink: "#141413",
+        "warm-gray": "#b0aea5",
+        "light-warm": "#e8e6dc",
+        terracotta: "#d97757",
+        "soft-blue": "#6a9bcc",
+        sage: "#788c5d",
       },
       borderRadius: {
         lg: "var(--radius)",

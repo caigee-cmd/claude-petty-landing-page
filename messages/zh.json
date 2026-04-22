@@ -1,0 +1,46 @@
+{
+  "Navbar": {
+    "features": "功能",
+    "pets": "宠物",
+    "download": "下载",
+    "get": "获取"
+  },
+  "Hero": {
+    "badge": "macOS 菜单栏应用",
+    "title": "Claude Petty",
+    "description": "住在菜单栏里的小伴侣，陪你追踪 Claude Code 会话。",
+    "download": "下载 macOS 版",
+    "meetPets": "认识宠物"
+  },
+  "DemoVideo": {
+    "caption": "菜单栏概览、每日统计和吉祥物设置",
+    "eyebrow": "产品预览",
+    "title": "一枚认真打磨过的桌面小物",
+    "description": "轻轻待在菜单栏里，不打断你的工作流。"
+  },
+  "Pets": {
+    "eyebrow": "吉祥物剧场",
+    "title": "你的编码伙伴们",
+    "description": "让等待和统计，也多一点性格。",
+    "run": "奔跑者",
+    "guitar": "吉他手",
+    "surprise": "惊讶",
+    "balloons": "梦想家",
+    "drink": "悠闲",
+    "sax": "爵士",
+    "ball": "调皮",
+    "hide": "害羞"
+  },
+  "Download": {
+    "title": "准备好领养了吗？",
+    "subtitle": "免费。macOS 14+。无需注册。",
+    "button": "下载 macOS 版",
+    "note": "未签名版本 — 首次启动时请右键点击打开",
+    "eyebrow": "最后一步",
+    "description": "把它放进菜单栏，让每次 Claude 会话都多一点陪伴。"
+  },
+  "Footer": {
+    "madeBy": "开发者",
+    "license": "MIT 许可证"
+  }
+}

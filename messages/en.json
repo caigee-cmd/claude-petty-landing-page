@@ -1,0 +1,46 @@
+{
+  "Navbar": {
+    "features": "Features",
+    "pets": "Pets",
+    "download": "Download",
+    "get": "Get"
+  },
+  "Hero": {
+    "badge": "macOS Menu Bar App",
+    "title": "Claude Petty",
+    "description": "A small menu bar companion for keeping an eye on your Claude Code sessions.",
+    "download": "Download for macOS",
+    "meetPets": "Meet the pets"
+  },
+  "DemoVideo": {
+    "caption": "Menu bar overview, daily stats, and mascot settings",
+    "eyebrow": "Product Preview",
+    "title": "A desktop companion polished like a small object worth keeping",
+    "description": "It stays quietly in your menu bar and never crowds your workflow."
+  },
+  "Pets": {
+    "eyebrow": "Mascot Theatre",
+    "title": "Your Coding Buddies",
+    "description": "A little personality for the quiet moments between sessions.",
+    "run": "Runner",
+    "guitar": "Guitarist",
+    "surprise": "Surprised",
+    "balloons": "Dreamer",
+    "drink": "Chill",
+    "sax": "Jazz",
+    "ball": "Playful",
+    "hide": "Shy"
+  },
+  "Download": {
+    "title": "Ready to adopt?",
+    "subtitle": "Free. macOS 14+. No sign-up.",
+    "button": "Download for macOS",
+    "note": "Unsigned build — right-click Open on first launch",
+    "eyebrow": "Final Step",
+    "description": "Put it in your menu bar and let each Claude session feel a touch more companionable."
+  },
+  "Footer": {
+    "madeBy": "Made by",
+    "license": "MIT License"
+  }
+}
