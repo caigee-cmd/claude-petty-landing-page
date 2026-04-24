@@ -141,7 +141,15 @@ export default function MascotShowcase() {
                       </span>
 
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/55">
-                        <span className="h-7 w-7 rounded-full bg-light-warm/40" />
+                        {isActive && animations[p.file] ? (
+                          <Lottie
+                            animationData={animations[p.file]}
+                            loop
+                            className="h-8 w-8"
+                          />
+                        ) : (
+                          <span className="h-7 w-7 rounded-full bg-light-warm/40" />
+                        )}
                       </span>
 
                       <span
