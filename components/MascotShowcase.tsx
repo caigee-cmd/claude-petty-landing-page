@@ -3,7 +3,7 @@
 import FadeContent from "@/components/FadeContent";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -43,6 +43,9 @@ export default function MascotShowcase() {
     [animations]
   );
 
+  useEffect(() => {
+    presets.forEach((p) => void loadAnimation(p.file));
+  }, [loadAnimation]);
 
   return (
     <section id="pets" className="relative overflow-hidden px-6 py-24 md:py-32">
@@ -126,10 +129,7 @@ export default function MascotShowcase() {
                   return (
                     <button
                       key={p.id}
-                      onClick={() => {
-                        setSelected(index);
-                        void loadAnimation(p.file);
-                      }}
+                      onClick={() => setSelected(index)}
                       className={`flex w-full items-center gap-3 rounded-[22px] border px-4 py-3.5 text-left transition-all duration-200 ${
                         isActive
                           ? "border-white/82 bg-white/86 shadow-[0_12px_28px_rgba(31,29,26,0.05)]"
