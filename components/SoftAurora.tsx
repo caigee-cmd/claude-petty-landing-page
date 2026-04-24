@@ -244,8 +244,21 @@ export default function SoftAurora({
     }
 
     let animationFrameId: number;
+    let isVisible = true;
+
+    function handleVisibilityChange() {
+      isVisible = !document.hidden;
+      if (isVisible && !animationFrameId) {
+        animationFrameId = requestAnimationFrame(update);
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     function update(time: number) {
+      if (!isVisible) {
+        animationFrameId = 0;
+        return;
+      }
       animationFrameId = requestAnimationFrame(update);
       program.uniforms.uTime.value = time * 0.001;
 
@@ -265,6 +278,7 @@ export default function SoftAurora({
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', resize);
       if (enableMouseInteraction) {
         gl.canvas.removeEventListener('mousemove', handleMouseMove);

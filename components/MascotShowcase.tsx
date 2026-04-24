@@ -43,9 +43,10 @@ export default function MascotShowcase() {
     [animations]
   );
 
+  // 只加载当前选中的动画，其他的按需点击后再加载
   useEffect(() => {
-    presets.forEach((p) => void loadAnimation(p.file));
-  }, [loadAnimation]);
+    void loadAnimation(preset.file);
+  }, [preset.file, loadAnimation]);
 
   return (
     <section id="pets" className="relative overflow-hidden px-6 py-24 md:py-32">
@@ -141,15 +142,7 @@ export default function MascotShowcase() {
                       </span>
 
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/55">
-                        {animations[p.file] ? (
-                          <Lottie
-                            animationData={animations[p.file]}
-                            loop
-                            className="h-8 w-8"
-                          />
-                        ) : (
-                          <span className="h-7 w-7 rounded-full bg-light-warm/40" />
-                        )}
+                        <span className="h-7 w-7 rounded-full bg-light-warm/40" />
                       </span>
 
                       <span

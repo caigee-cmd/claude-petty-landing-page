@@ -2,12 +2,35 @@
 
 import FadeContent from "@/components/FadeContent";
 import GlareHover from "@/components/GlareHover";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function DemoVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
+  // 懒加载：视频进入视口才开始加载
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  // 加载后开始播放
+  useEffect(() => {
+    if (!shouldLoad) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -15,7 +38,7 @@ export default function DemoVideo() {
       const p = video.play();
       if (p) {
         p.catch(() => {
-          // 浏览器阻止了自动播放（比如低电量、减少动态效果），保持 poster 展示
+          // 浏览器阻止了自动播放，保持 poster 展示
         });
       }
     };
@@ -29,10 +52,10 @@ export default function DemoVideo() {
     return () => {
       video.removeEventListener("loadeddata", playVideo);
     };
-  }, []);
+  }, [shouldLoad]);
 
   return (
-    <section id="features" className="relative px-6 py-10 md:py-14">
+    <section ref={sectionRef} id="features" className="relative px-6 py-10 md:py-14">
       <div className="mx-auto w-full max-w-5xl">
         <FadeContent duration={0.9} blur>
           <GlareHover
@@ -59,14 +82,16 @@ export default function DemoVideo() {
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload={shouldLoad ? "auto" : "none"}
                 className="w-full h-auto"
                 poster="/video-poster.jpg"
               >
-                <source
-                  src="https://claude-glance-1390058464.cos.ap-singapore.myqcloud.com/claude-glance-demo.mp4"
-                  type="video/mp4"
-                />
+                {shouldLoad && (
+                  <source
+                    src="https://claude-glance-1390058464.cos.ap-singapore.myqcloud.com/claude-glance-demo.mp4"
+                    type="video/mp4"
+                  />
+                )}
               </video>
             </div>
           </GlareHover>

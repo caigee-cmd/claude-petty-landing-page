@@ -161,6 +161,7 @@ export default function Navbar() {
           style={{ WebkitBackdropFilter: isScrolled ? "blur(22px)" : "blur(10px)" }}
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_62%)]" />
+          <div className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-ink/[0.08]" />
 
           <motion.a
             href="#"
